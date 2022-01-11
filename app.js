@@ -27,17 +27,14 @@ const database = {
 
 let URL = "https://api.funtranslations.com/translate/minion.json";
 
-function getTranslationURL(text) {
-    return URL + "?" + "text=" + text;
-}
+const getTranslationURL = (text) => URL + "?" + "text=" + text
 
-function errorhandler(error) {
+const errorhandler = (error) => {
     console.log("error occured", error);
     alert("server down try later!");
 }
 
-
-function clickHandler() {
+const clickHandler = () => {
     let txtinput = txtInput.value;
     fetch(getTranslationURL(txtinput)).then(res => res.json()).then(json => {
         console.log(json.contents.translated);
